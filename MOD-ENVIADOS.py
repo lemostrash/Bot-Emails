@@ -4,19 +4,20 @@ import time
 
 with sync_playwright() as p:
     navegador = p.chromium.launch(headless=False)
+    
     # Abre uma nova guia
     pagina = navegador.new_page()
 
     # Acessa a pagina
-    pagina.goto("https:site.com.br/")
+    pagina.goto(" https:site.com.br/ ")
     # Seleciona o campo do email
     pagina.locator('xpath=//*[@id="user"]').click()
     # Insere o email
-    pagina.fill('xpath=//*[@id="user"]', "email")
+    pagina.fill('xpath=//*[@id="user"]', " email ")
     # Seleciona o campo de senha
     pagina.locator('xpath=//*[@id="pass"]').click()
     # Insere a senha
-    pagina.fill('xpath=//*[@id="pass"]', "senha")
+    pagina.fill('xpath=//*[@id="pass"]', " senha ")
     # Clica em entrar
     pagina.locator('xpath=//*[@id="login_submit"]').click() 
     time.sleep(5)
@@ -29,7 +30,7 @@ with sync_playwright() as p:
 
     # Processo de mover emails
 
-    #Clica no email
+    # Clica no email
     pagina.click("td[class='subject']")
     # Seleciona todos emails
     pagina.locator("tr[class='message selected focused']").press('Control+A') 
